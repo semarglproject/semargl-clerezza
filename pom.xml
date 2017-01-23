@@ -25,6 +25,14 @@
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
+            <!-- Skip checkstyle execution for module -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -55,8 +63,12 @@
             <!-- Exclude to use dependency from clerezza - rdf.core - utils -->
             <exclusions>
                 <exclusion>
-                    <groupId>org.openrdf.sesame</groupId>
-                    <artifactId>sesame-sail-lucene4</artifactId>
+                    <groupId>org.eclipse.rdf4j</groupId>
+                    <artifactId>rdf4j-sail-lucene4</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.eclipse.rdf4j</groupId>
+                    <artifactId>rdf4j-sail-lucene</artifactId>
                 </exclusion>
                 <exclusion>
                     <groupId>commons-codec</groupId>
